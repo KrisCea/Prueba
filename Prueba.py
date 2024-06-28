@@ -78,24 +78,24 @@ while agregar_cliente:
         while not opcion.isdigit():
             mensaje_error()
             opcion=input("Ingrese numero de opcion: ")
+        
 
-
-        if opcion==1:
+        if int(opcion)==1:
             producto="Abono"
             precio= 24
-        elif opcion==2:
+        elif int(opcion)==2:
             producto="Tierra"
             precio= 28.6
-        elif opcion==3:
+        elif int(opcion)==3:
             producto="Lirio"
             precio= 27.5
-        elif opcion==4:
+        elif int(opcion)==4:
             producto="Rosas rojas"
             precio= 39.5 
-        elif opcion==5:
+        elif int(opcion)==5:
             producto="Margarita"
             precio= 110
-        elif opcion==0:
+        elif int(opcion)==0:
             agregar_cliente=False
             break
 
@@ -104,12 +104,12 @@ while agregar_cliente:
             mensaje_error()
             cantidad=input("Cantidad: ")
 
-        float(valor_compra)
-        float(precio)
-        float(cantidad)
+        
+        
+        
 
-        valor_compra=precio*cantidad
-        precio_final+=valor_compra
+        valor_compra=float(precio)*float(cantidad)
+        precio_final+=float(valor_compra)
 
         pedido.append([f"Producto: {producto}",f"Cantidad: {cantidad}",f"Precio: ${valor_compra}"])
 
@@ -131,5 +131,5 @@ print("Saliendo...")
 with open("Reporte_GreenGarden.csv","w") as archivoCSV:
     editarCSV=csv.writer(archivoCSV)
 
-    editarCSV.writerow("Nombre","Direccion","Telefono")
+    editarCSV.writerow(["Nombre","Direccion","Telefono"])
     editarCSV.writerows(data)
